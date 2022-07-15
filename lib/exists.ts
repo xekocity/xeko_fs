@@ -7,6 +7,11 @@ import Path from './types/Path.ts';
  * @returns a promise that resolves to a [boolean,Deno.FileInfo] tuple.
  * The boolean is true if the path exists and false if it does not.
  */
-export default function exists(path: Path): Promise<boolean> {
-	return Deno.stat(path).then((f) => f.isFile || f.isDirectory);
+export default async function exists(path: Path): Promise<boolean> {
+	try {
+		const f = await Deno.lstat(path);
+		return f.isFile;
+	} catch {
+		return false;
+	}
 }
