@@ -7,6 +7,7 @@ import isDirectory from './lib/isDirectory.ts';
 import isFile from './lib/isFile.ts';
 import name from './lib/name.ts';
 import root from './lib/root.ts';
+import listFiles from './lib/listFiles.ts';
 
 export {
 	basename,
@@ -16,6 +17,7 @@ export {
 	home,
 	isDirectory,
 	isFile,
+	listFiles,
 	name,
 	root,
 };
